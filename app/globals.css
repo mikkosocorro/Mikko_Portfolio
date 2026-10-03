@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: #05070d;
+}
+
+body {
+  background: #05070d;
+  color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: rgba(47, 107, 255, 0.45);
+  color: #fff;
+}
+
+@layer utilities {
+  .fade-up {
+    opacity: 0;
+    animation: fadeUp 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+    animation-delay: var(--d, 0ms);
+  }
+
+  .fade-in {
+    opacity: 0;
+    animation: fadeIn 0.9s ease forwards;
+    animation-delay: var(--d, 0ms);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .fade-up,
+  .fade-in {
+    animation: none;
+    opacity: 1;
+  }
+  * {
+    transition-duration: 0.01ms !important;
+  }
+}
